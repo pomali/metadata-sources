@@ -62,6 +62,9 @@ class MySource(Source):
         isbn = identifiers.get('isbn', None)
 
         if idval: d['id'] = idval
+        # Special Arxiv case: numeric id in title
+        elif sum(c.isdigit() for c in title) >= 6:
+            d['id'] = title.rsplit('_')[0] # eliminating all possible suffixes
         if isbn: d['isbn'] = isbn
         if title: d['title'] = title
         if authors: d['authors'] = authors
