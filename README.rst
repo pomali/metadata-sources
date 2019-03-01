@@ -29,6 +29,16 @@ This makes a zip package with the code and installs it in the user's calibre
 directory (``~/.config/calibre`` on Arch linux)
 
 
+*[UPDATED] For OSX type*::
+  ./calibre-customize -b <plugin_folder>
+
+<plugin folder is the specific folder where you have the __init__.py file. In the arxiv 
+case, it would be <repo>/arxiv/src
+
+Usually in OSX, the command line tools are in the bundle:
+`/Applications/calibre.app/Contents/console.app/Contents/MacOS/`
+
+
 Links
 -----
 - http://calibre-ebook.com/
