@@ -91,10 +91,12 @@ class MySource(Source):
     def identify_results_keygen(self, title=None, authors=None, identifiers={}):
         """ Returns a key to sort search results. Lesser value means more relevance."""
 
-        query = dict([('title', title), ('authors', authors)] + identifiers.items())
+        query = dict([('title', title), ('authors', authors)] +
+                     list(identifiers.items()))
 
         def mi_distance(mi):
-            mifields = dict([('title', mi.title), ('authors', mi.authors)] + mi.identifiers.items())
+            mifields = dict([('title', mi.title), ('authors', mi.authors)] +
+                            list(mi.identifiers.items()))
             return metadata_distance(query, mifields, idkey = self.idkey)
 
         return mi_distance
